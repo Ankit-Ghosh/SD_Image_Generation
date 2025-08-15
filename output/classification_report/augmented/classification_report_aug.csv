@@ -1,0 +1,11 @@
+,Precision,Recall,F1-score,Support
+Banana,1,1,1,13
+Clove,1,1,1,8
+Coconut,0.92,1,0.96,11
+Cotton,1,1,1,9
+Cucumber,1,1,1,12
+Maize,0.9,1,0.9,12
+Sugarcane,1,0.8,0.92,14
+Accuracy,0.97,0.97,0.97,79
+Macro Avg,0.98,0.98,0.97,79
+Weighted Avg,0.97,0.97,0.97,79
