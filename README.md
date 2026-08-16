@@ -168,7 +168,7 @@ The repository currently organizes the crop datasets into nine crop-specific dir
 
 ---
 
-# 🧩 1. Custom Stable Diffusion Architecture
+# 1. Custom Stable Diffusion Architecture
 
 The implementation is located in:
 
