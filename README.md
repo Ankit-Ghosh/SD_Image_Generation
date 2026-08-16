@@ -1,4 +1,4 @@
-# 🌾 Stable Diffusion for Agricultural Image Generation
+# Stable Diffusion for Agricultural Image Generation
 
 A research-oriented implementation and experimental framework for **text-guided agricultural image generation, Stable Diffusion architecture exploration, SDXL LoRA fine-tuning, and crop-image classification**.
 
@@ -6,7 +6,7 @@ The project brings together a custom implementation of the Stable Diffusion gene
 
 ---
 
-## 📌 Overview
+## Overview
 
 Agricultural computer-vision systems often require large and diverse image datasets. However, collecting and annotating sufficient real-world agricultural imagery can be difficult because of environmental variation, crop availability, disease occurrence, imaging conditions, and geographical differences.
 
@@ -33,7 +33,7 @@ The repository contains three complementary components:
 
 ---
 
-# 🧠 Project Architecture
+# Project Architecture
 
 The overall project can be viewed as the following workflow:
 
@@ -76,7 +76,7 @@ The overall project can be viewed as the following workflow:
 
 ---
 
-# ✨ Features
+# Features
 
 * Text-to-image generation using a custom Stable Diffusion implementation
 * Image-to-image generation support
@@ -101,10 +101,10 @@ The overall project can be viewed as the following workflow:
 
 ---
 
-# 📂 Repository Structure
+# Repository Structure
 
 ```text
-SD_Image_Generation/
+SD-Image-Generation/
 │
 ├── datasets/
 │   ├── almond/
@@ -414,7 +414,7 @@ The example prompt focuses on rice crops affected by downy mildew.
 
 ---
 
-# 🌱 2. Agricultural Dataset
+# 2. Agricultural Dataset
 
 The repository contains crop-specific image collections under:
 
@@ -449,7 +449,7 @@ The datasets provide the agricultural visual material used throughout the projec
 
 ---
 
-# 🧪 3. SDXL LoRA Fine-Tuning
+# 3. SDXL LoRA Fine-Tuning
 
 The LoRA workflow is located in:
 
@@ -555,7 +555,7 @@ This procedure is documented in the repository's LoRA-specific README.
 
 ---
 
-# 🖼️ 4. Crop Image Classification
+# 4. Crop Image Classification
 
 The classification experiments are located in:
 
@@ -631,7 +631,7 @@ The original classifier uses:
 
 ---
 
-# 🔬 Data Augmentation
+# Data Augmentation
 
 The classification pipeline includes image augmentation operations such as:
 
@@ -645,7 +645,7 @@ These transformations are intended to improve the robustness of the classifier t
 
 ---
 
-# 📊 Evaluation
+# Evaluation
 
 The classification experiments generate several evaluation artifacts.
 
@@ -679,7 +679,7 @@ The classifier includes a helper function for predicting the crop class of an in
 
 ---
 
-# 📁 Output Directory
+# Output Directory
 
 Generated and evaluation artifacts are organized under:
 
@@ -713,13 +713,13 @@ sample_generated_images/
 
 ---
 
-# 🚀 Getting Started
+# Getting Started
 
 ## 1. Clone the Repository
 
 ```bash
-git clone https://github.com/Ankit-Ghosh/SD_Image_Generation.git
-cd SD_Image_Generation
+git clone https://github.com/Ankit-Ghosh/SD-Image-Generation.git
+cd SD-Image-Generation
 ```
 
 ## 2. Create a Python Environment
@@ -751,7 +751,7 @@ source .venv/bin/activate
 
 ---
 
-# 📦 Dependencies
+# Dependencies
 
 The project uses multiple Python ecosystems depending on the component being executed.
 
@@ -800,7 +800,7 @@ Because the repository currently separates these workflows rather than providing
 
 ---
 
-# 🎨 Running the Custom Stable Diffusion Demo
+# Running the Custom Stable Diffusion Demo
 
 Navigate to:
 
@@ -834,7 +834,7 @@ The demo uses an agricultural prompt and generates an image using the custom pip
 
 ---
 
-# 📝 Customizing the Prompt
+# Customizing the Prompt
 
 The prompt can be changed directly in `demo.py`.
 
@@ -861,7 +861,7 @@ The repository's pipeline also supports a separate unconditional prompt for clas
 
 ---
 
-# 🎛️ Generation Parameters
+# Generation Parameters
 
 Important generation parameters include:
 
@@ -881,7 +881,7 @@ The current pipeline defaults include a CFG scale of `7.5`, 50 inference steps, 
 
 ---
 
-# 🔄 Text-to-Image vs. Image-to-Image
+# Text-to-Image vs. Image-to-Image
 
 ## Text-to-Image
 
@@ -938,7 +938,7 @@ The pipeline exposes both `input_image` and `strength`, allowing the same genera
 
 ---
 
-# 🧪 Experimental Workflow
+# Experimental Workflow
 
 A typical research workflow using this repository is:
 
@@ -977,7 +977,7 @@ This structure makes the repository useful not only as an image-generation imple
 
 ---
 
-# 🔍 Research Components
+# Research Components
 
 The repository can be understood as having three research layers.
 
@@ -1009,88 +1009,7 @@ Downstream Performance
 
 ---
 
-# ⚙️ Hardware Considerations
-
-Diffusion models are computationally intensive, particularly during SDXL fine-tuning.
-
-A CUDA-enabled NVIDIA GPU is strongly recommended for:
-
-* Stable Diffusion generation
-* SDXL LoRA fine-tuning
-* Large-scale image generation
-
-The custom demo automatically selects CUDA when it is available and otherwise falls back to CPU.
-
-For SDXL LoRA training, GPU memory requirements can vary significantly depending on:
-
-* Batch size
-* Resolution
-* Gradient accumulation
-* Mixed precision
-* Text-encoder training
-* Number of validation images
-* Checkpointing configuration
-
-The supplied LoRA configuration uses FP16 mixed precision and gradient accumulation to reduce training memory requirements.
-
----
-
-# ⚠️ Important Notes
-
-This repository contains research and experimental code rather than a packaged production application.
-
-In particular:
-
-* Model checkpoints are not necessarily included in the repository.
-* Some scripts contain local filesystem paths that need to be changed before execution.
-* The custom Stable Diffusion demo expects tokenizer/model files at specific relative paths.
-* The LoRA workflow is designed to work alongside the Hugging Face Diffusers repository.
-* Classification datasets referenced by the scripts may require local path adjustment.
-* Dependency versions should be selected carefully because PyTorch, CUDA, TensorFlow, Diffusers, and Transformers versions can affect compatibility.
-
----
-
-# 📚 References
-
-This project builds upon ideas and implementations from the following areas:
-
-* **Stable Diffusion / Latent Diffusion Models**
-* **Denoising Diffusion Probabilistic Models (DDPM)**
-* **CLIP**
-* **Variational Autoencoders (VAE)**
-* **U-Net architectures**
-* **Classifier-Free Guidance**
-* **Stable Diffusion XL**
-* **Low-Rank Adaptation (LoRA)**
-* **Hugging Face Diffusers**
-* **ResNet50**
-
-Recommended foundational references:
-
-1. Rombach et al. — *High-Resolution Image Synthesis with Latent Diffusion Models*
-2. Ho et al. — *Denoising Diffusion Probabilistic Models*
-3. Radford et al. — *Learning Transferable Visual Models From Natural Language Supervision*
-4. Hu et al. — *LoRA: Low-Rank Adaptation of Large Language Models*
-5. He et al. — *Deep Residual Learning for Image Recognition*
-
----
-
-# 🤝 Acknowledgements
-
-This project makes use of concepts and open-source tools from the broader generative-AI and computer-vision ecosystem, particularly:
-
-* PyTorch
-* Hugging Face Diffusers
-* Hugging Face Transformers
-* TensorFlow / Keras
-* Stable Diffusion
-* Stable Diffusion XL
-* CLIP
-* LoRA
-
----
-
-# 📄 License
+# License
 
 Please add the license that applies to this project before publishing it as a reusable open-source project.
 
@@ -1098,30 +1017,30 @@ If this repository is intended primarily for academic/research use, an appropria
 
 ---
 
-# 👨‍💻 Author
+# Author
 
 **Ankit Ghosh**
 
 GitHub: [Ankit-Ghosh](https://github.com/Ankit-Ghosh)
 
-Repository: [SD_Image_Generation](https://github.com/Ankit-Ghosh/SD_Image_Generation)
+Repository: [SD-Image-Generation](https://github.com/Ankit-Ghosh/SD-Image-Generation)
 
 ---
 
-# ⭐ Citation
+# Citation
 
 If you use this repository in academic work, please cite the repository and the associated research work when a formal publication is available.
 
 ```text
 Ankit Ghosh.
-SD_Image_Generation: Stable Diffusion for Agricultural Image Generation.
+SD-Image-Generation: Stable Diffusion for Agricultural Image Generation.
 GitHub Repository.
-https://github.com/Ankit-Ghosh/SD_Image_Generation
+https://github.com/Ankit-Ghosh/SD-Image-Generation
 ```
 
 ---
 
-# 🚧 Future Work
+# Future Work
 
 Potential future extensions include:
 
@@ -1141,7 +1060,7 @@ Potential future extensions include:
 
 ---
 
-## 🌾 Project Goal
+## Project Goal
 
 The broader goal of this project is to investigate how **generative diffusion models can contribute to agricultural computer vision by creating realistic, diverse, and domain-specific synthetic imagery**.
 
